@@ -1,0 +1,55 @@
+html, body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    border-color: black;
+   /* text-shadow: 2px 2px;*/
+}
+
+h1, h2, h3{
+    color: black;
+}
+
+body{
+    border: solid 5px;
+}
+
+input.button {
+    /* 文字サイズを1.4emに指定 */
+
+    font-size: 1.4em;
+	font-weight: bold;
+    padding: 10px 30px;
+    color: #fff;
+    border-style: none;
+
+    box-shadow: 2px 2px 3px 1px #666;
+    -moz-box-shadow: 2px 2px 3px 1px #666;
+    -webkit-box-shadow: 2px 2px 3px 1px #666;
+    text-shadow: 1px 1px 2px #000;
+    background: -moz-linear-gradient(bottom, #36d, #248 50%, #36d);
+    background: -webkit-gradient(linear, left bottom, left top, from(#36d), color-stop(0.5, #248), to(#36d));
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+input.button:hover {
+    opacity: 0.8;
+}
+#buttons{
+	text-align: center;
+}
+input.time {
+    /* 文字サイズを1.4emに指定 */
+
+    font-size: 2.5em;
+	font-weight: bold;
+    padding: 10px 30px;
+    color: black;
+/*    border-style: none;*/
+}
+#clock{
+	text-align: center;
+	font-size: 20em;
+}

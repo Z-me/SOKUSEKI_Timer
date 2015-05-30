@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head> <!-- head 要素には主に html 文書のメタ情報や外部スクリプト情報を記述する -->
+        <meta http-equiv = "content-language" content = "ja"/>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0"/> <!-- スマホ対応 http://www.tagindex.com/html5/page/meta_viewport.html -->
+        <meta http-equiv = "content-type" content = "text/html" charset = "UTF-8"/>
+        <meta name = "description" content = "SOKUSEKIタイマー"/>
+        <meta name = "keywords" content = "HTML, Jquery，タイマー"/>
+        <meta name = "robots" content = "noindex, nofollow"/>
+        <meta name = "application-name" content = "SOKUSEKIタイマー"/>
+        <meta name = "author" content = "Hajime Saito"/>
+        <!-- meta タグの解説 http://www.htmq.com/html5/meta.shtml -->
+        <title>SOKUSEKIタイマー＼( 'ω')／</title>
+        <script type="text/javascript" src = "scripts/jquery.js"></script><!-- jqueryを読み込む -->
+        <script type="text/javascript" charset="utf-8" src="scripts/timer.js"></script>
+        <link rel = "stylesheet" type = "text/css" href = "scripts/timer.css"/> <!-- 外部 css ファイルを読み込む -->
+    <!-- ファビコンを設定する -->
+        <link rel="shortcut icon" href="fabicon.jpg" >
+    </head>
+	<body>
+		<div id="buttons">
+		<p style="word-spacing:165px;">
+			<input type="button" class="button" id="M_Plus" value="+">
+			<input type="button" class="button" id="M_Minus" value="-">
+			<input type="button" class="button" id="S_Plus" value="+">
+			<input type="button" class="button" id="S_Minus" value="-">
+		</p>
+		</div>
+		<div id="clock">20:00</div>
+		<form>
+		<div id="buttons">
+			<input type="button" class="button" id="start" value="Start">
+			<input type="button" class="button" id="stop" value="Stop" disabled>
+			<input type="button" class="button" id="restart" value="Restart" disabled>
+			<input type="button" class="button" id="reset" value="Reset" disabled>
+		</div>
+		</form>
+		<form><h3>
+		<table><tr>
+			<td>♪</td><td>
+				<input type="time" class="time" value="00:08:00" id="first_bell" step="1">
+			</td><td>
+				<div id="first"></div>
+			</td>
+			</tr><tr>
+			<td>♪♪</td><td>
+				<input type="time" class="time" value="00:05:00" id="second_bell" step="1">
+			</td><td>
+				<div id="second"></div>
+			</td>
+			</tr><tr>
+			<td>♪♪♪</td><td>
+				<input type="time" class="time" value="00:00:00" id="last_bell" step="1">
+			</td><td>
+				<div id="last"></div>
+			</td>
+			</tr>
+		</table></h3>
+		</form>
+	</body>
+</html>
