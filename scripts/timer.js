@@ -23,7 +23,7 @@ $(function () {
   });
 
   $('#S_Plus').click(function(){
-    if(sec >= 60 && min < 99){
+    if(sec > 60 && min < 99){
       min += 1;
       sec = 0;
     }else sec += 1;
