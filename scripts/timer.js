@@ -89,19 +89,23 @@ $(function () {
   */
   function getTime(){
     //タイマー設定
-    var bell_m = parseInt($('#first_bell').val().slice(3,5), 10);
-    var bell_s = parseInt($('#first_bell').val().slice(6,8), 10);
-    first = bell_s + (bell_m * 60);
-    console.log(first + 1);
-    console.log(first);
+    var bell_m, bell_s;
+    var bell_id = [ 'first_bell',
+                    'second_bell',
+                    'last_bell',];
+    var bell = [];
+    for(var i = 0 ; i < bell_id.length; i++){
+      var time_str = document.getElementById(bell_id[i]).value;
 
-    bell_m = parseInt($('#second_bell').val().slice(3,5), 10);
-    bell_s = parseInt($('#second_bell').val().slice(6,8), 10);
-    second = bell_s + (bell_m * 60);
+      bell_m = parseInt(time_str.slice(3,5), 10);
+      if(! time_str.slice(6,8)) bell_s = 0;
+      else  bell_s = parseInt(time_str.slice(6,8), 10);
 
-    bell_m = parseInt($('#last_bell').val().slice(3,5), 10);
-    bell_s = parseInt($('#last_bell').val().slice(6,8), 10);
-    last = bell_s + (bell_m * 60);
+      bell[bell_id[i]] = bell_s + (bell_m * 60);
+    }
+    first = bell['first_bell'];
+    second = bell['second_bell'];
+    last = bell['last_bell'];
   }
 
  /**
@@ -150,6 +154,8 @@ $(function () {
   function bellCheck(){
     var time = sec + (min * 60);
     console.log("Time = "+ time);
+    console.log(first);
+    console.log(second);
     console.log(last);
 
     if(first == time && first >= 0){
