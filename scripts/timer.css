@@ -37,7 +37,7 @@ input.button {
 input.button:hover {
     opacity: 0.8;
 }
-#buttons{
+.buttons{
 	text-align: center;
 }
 input.time {
