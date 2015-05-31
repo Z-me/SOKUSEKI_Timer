@@ -2,7 +2,7 @@ $(function () {
   console.log("jqueryの呼び出し成功");
   var sec = 0;
   var min = 20;
-  var start_time = "00:00";
+  var start_time = "20:00"; //デフォルトのstart時間
   var first, second, last;
   var timer;
 
@@ -44,20 +44,8 @@ $(function () {
   // スタート
   $('#start').click(function() {
 
-    //タイマー設定
-    var bell_m = parseInt($('#first_bell').val().slice(3,5), 10);
-    var bell_s = parseInt($('#first_bell').val().slice(6,8), 10);
-    first = bell_s + (bell_m * 60);
-    console.log(first + 1);
-    console.log(first);
-
-    bell_m = parseInt($('#second_bell').val().slice(3,5), 10);
-    bell_s = parseInt($('#second_bell').val().slice(6,8), 10);
-    second = bell_s + (bell_m * 60);
-
-    bell_m = parseInt($('#last_bell').val().slice(3,5), 10);
-    bell_s = parseInt($('#last_bell').val().slice(6,8), 10);
-    last = bell_s + (bell_m * 60);
+    //タイマーセット
+    getTime();
 
     timer = setInterval(countdown, 1000);
 
@@ -76,6 +64,7 @@ $(function () {
 
   // リスタート
   $('#restart').click(function() {
+    getTime();
     // 一時停止から再開
     timer = setInterval(countdown, 1000);
 
@@ -87,7 +76,7 @@ $(function () {
   $('#reset').click(function() {
     // 初期状態
     sec = 0;
-    min = 0;
+    min = 20;
     $('#clock').html(start_time);
     clearInterval(timer);
 
@@ -95,6 +84,26 @@ $(function () {
     $('#start').removeAttr('disabled');
   });
   
+  /**
+  * 表示時間から時間を取得する
+  */
+  function getTime(){
+    //タイマー設定
+    var bell_m = parseInt($('#first_bell').val().slice(3,5), 10);
+    var bell_s = parseInt($('#first_bell').val().slice(6,8), 10);
+    first = bell_s + (bell_m * 60);
+    console.log(first + 1);
+    console.log(first);
+
+    bell_m = parseInt($('#second_bell').val().slice(3,5), 10);
+    bell_s = parseInt($('#second_bell').val().slice(6,8), 10);
+    second = bell_s + (bell_m * 60);
+
+    bell_m = parseInt($('#last_bell').val().slice(3,5), 10);
+    bell_s = parseInt($('#last_bell').val().slice(6,8), 10);
+    last = bell_s + (bell_m * 60);
+  }
+
  /**
   * カウントダウン
   */
