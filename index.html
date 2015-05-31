@@ -35,19 +35,19 @@
 		</form>
 		<form><h3>
 		<table><tr>
-			<td>♪</td><td>
+			<td id="onpu">♪</td><td>
 			<input type="time" class="time" name="first" value="00:08:00" id="first_bell" step="1">
 			</td><td>
 				<div id="first"><audio src=sound/bell1.mp3 preload='auto' id='bell1'/></div>
 			</td>
 			</tr><tr>
-			<td>♪♪</td><td>
+			<td id="onpu">♪♪</td><td>
 			<input type="time" class="time" name="second" value="00:05:00" id="second_bell" step="1">
 			</td><td>
 				<div id="second"><audio src=sound/bell2.mp3 preload='auto' id='bell2'/></div>
 			</td>
 			</tr><tr>
-			<td>♪♪♪</td><td>
+			<td id="onpu">♪♪♪</td><td>
 			<input type="time" class="time" name="last" value="00:00:00" id="last_bell" step="1">
 			</td><td>
 				<div id="last"><audio src=sound/bell3.mp3 preload='auto' id='bell3'/></div>
@@ -55,6 +55,9 @@
 			</tr>
 		</table></h3>
 		</form>
+		<div id="footer">
+			Copyright © Hajime Saito(<a href="https://github.com/Z-me/SOKUSEKI_Timer" target="_blank">Z-me/SOKUSEKI_Timer</a>)
+		</div>
 	</body>
     <script type="text/javascript" src = "scripts/jquery.js"></script><!-- jqueryを読み込む -->
     <script type="text/javascript" charset="utf-8" src="scripts/timer.js"></script>

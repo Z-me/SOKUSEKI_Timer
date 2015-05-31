@@ -11,7 +11,24 @@ h1, h2, h3{
 }
 
 body{
-    border: solid 5px;
+    background-color: #CEF6F5;
+}
+
+#footer{
+    text-align: center;
+    font-style: italic;
+    font-size: xx-small;
+    color: #585858;
+}
+
+table{
+ margin-right : auto;
+ margin-left : auto
+}
+
+#onpu{
+    font-style: italic;
+    font-size: 3em;
 }
 
 input.button {
