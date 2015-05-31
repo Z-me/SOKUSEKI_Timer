@@ -155,21 +155,18 @@ $(function () {
     if(first == time && first >= 0){
       console.log("ここ見た1");
       console.log("first = "+ first + " time = " + time);
-      $('#first').html("<audio src=sound/bell1.mp3 preload='auto' id='bell1' controls>");
       first = -1;
       document.getElementById("bell1").play();
     }
     if(second == time  && second >= 0){
       console.log("ここ見た2");
       console.log("second = " + second + " time = " + time);
-      $('#second').html("<audio src=sound/bell2.mp3 preload='auto' id='bell2' controls>");
       second = -1;
       document.getElementById("bell2").play();
     }
     if(last == time && last >= 0){
       console.log("ここ見た3");
       console.log("last = " + last + " time = " + time);
-      $('#last').html("<audio src=sound/bell3.mp3 preload='auto' id='bell3' controls>");
       last = -1;
       document.getElementById("bell3").play();
     }
