@@ -26,7 +26,11 @@ table{
  margin-left : auto
 }
 
-#onpu{
+td{
+    text-align: center;
+}
+
+.onpu{
     font-style: italic;
     font-size: 3em;
 }
@@ -69,4 +73,7 @@ input.time {
 #clock{
 	text-align: center;
 	font-size: 20em;
+}
+.TimeOver{
+    color: #FE2E64;
 }

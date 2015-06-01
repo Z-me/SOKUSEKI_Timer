@@ -29,29 +29,28 @@
 		<div class="buttons">
 			<input type="button" class="button" id="start" value="Start">
 			<input type="button" class="button" id="stop" value="Stop" disabled>
-			<input type="button" class="button" id="restart" value="Restart" disabled>
 			<input type="button" class="button" id="reset" value="Reset" disabled>
 		</div>
 		</form><br/>
 		<form>
 		<table><tr>
-			<td id="onpu">♪</td><td>
+			<td class="onpu">♪</td><td>
 			<input type="time" class="time" name="first" value="00:08:00" id="first_bell" step="1">
 			</td><td>
-				<div id="first"><audio src=sound/bell1_.wav preload='auto' id='bell1'/></div>
-			</td>
+				<div id="first"><audio src=sound/bell1.mp3 preload='auto' id='bell1'/></div>
+			</td><td><img src="speaker.png" id="sound1" height="64" width="64" alt=""></td>
 			</tr><tr>
-			<td id="onpu">♪♪</td><td>
+			<td class="onpu">♪♪</td><td>
 			<input type="time" class="time" name="second" value="00:05:00" id="second_bell" step="1">
 			</td><td>
-				<div id="second"><audio src=sound/bell2_.wav preload='auto' id='bell2'/></div>
-			</td>
+				<div id="second"><audio src=sound/bell2.mp3 preload='auto' id='bell2'/></div>
+			</td><td><img src="speaker.png" id="sound2" height="64" width="64" alt=""></td>
 			</tr><tr>
-			<td id="onpu">♪♪♪</td><td>
+			<td class="onpu">♪♪♪</td><td>
 			<input type="time" class="time" name="last" value="00:00:00" id="last_bell" step="1">
 			</td><td>
-				<div id="last"><audio src=sound/bell3_.wav preload='auto' id='bell3'/></div>
-			</td>
+				<div id="last"><audio src=sound/bell3.mp3 preload='auto' id='bell3'/></div>
+			</td><td><img src="speaker.png" id="sound3" height="64" width="64" alt=""></td>
 			</tr>
 		</table>
 		</form>

@@ -57,18 +57,8 @@ $(function () {
         clearInterval(timer);
 
         $(this).attr('disabled', 'disabled');
-        $('#restart').removeAttr('disabled');
+//        $('#restart').removeAttr('disabled');
     });
-
-    /*/ リスタート
-    $('#restart').click(function () {
-        getTime();
-        // 一時停止から再開
-        timer = setInterval(countdown, 1000);
-
-        $(this).attr('disabled', 'disabled');
-        $('#stop').removeAttr('disabled');
-    });*/
 
     // リセット
     $('#reset').click(function () {
@@ -78,7 +68,7 @@ $(function () {
         $('#clock').html(start_time);
         clearInterval(timer);
 
-        $('#stop, #restart, #reset').attr('disabled', 'disabled');
+        $('#stop, #reset').attr('disabled', 'disabled');
         $('#start').removeAttr('disabled');
     });
 
@@ -113,28 +103,27 @@ $(function () {
      */
     function countdown() {
         sec -= 1;
-
         if (sec < 0) {
-            sec = 0;
+        //    sec = 0;
             if (min >= 1) {
                 sec = 59;
                 min -= 1;
             } else
-                clearInterval(timer);
+                $('#clock').addClass("TimeOver");
         }
-
         if (min < 0) {
             min = 0;
         }
         view(); //カウント表示
         bellCheck();  //ベルのチェック
+        console.log(sec);
     }
 
     /**
      * 表示変更
      */
     function view() {
-        if (sec < 10) {
+        if (sec < 10 && 0 <= sec) {
             var sec_number = '0' + sec.toString();
         } else {
             var sec_number = sec;
@@ -145,7 +134,12 @@ $(function () {
         } else {
             var min_number = min;
         }
-        $('#clock').html(min_number + ':' + sec_number);
+        if(sec >= 0 && min >= 0)
+            $('#clock').html(min_number + ':' + sec_number);
+        else{
+            $('#clock').html(sec_number);
+        }
+
     }
 
     /**
@@ -166,4 +160,17 @@ $(function () {
             document.getElementById("bell3").play();
         }
     }
+
+    //試聴機能
+    $('#sound1').click(function(){
+        document.getElementById("bell1").play();
+    });
+    $('#sound2').click(function(){
+        document.getElementById("bell2").play();
+    });
+    $('#sound3').click(function(){
+        document.getElementById("bell3").play();
+    });
+
+
 });
