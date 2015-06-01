@@ -47,7 +47,7 @@ $(function () {
 
         timer = setInterval(countdown, 1000);
 
-        $(this).attr('disabled', 'disabled');
+//        $(this).attr('disabled', 'disabled');
         $('#stop,#reset').removeAttr('disabled');
     });
 
@@ -60,7 +60,7 @@ $(function () {
         $('#restart').removeAttr('disabled');
     });
 
-    // リスタート
+    /*/ リスタート
     $('#restart').click(function () {
         getTime();
         // 一時停止から再開
@@ -68,7 +68,7 @@ $(function () {
 
         $(this).attr('disabled', 'disabled');
         $('#stop').removeAttr('disabled');
-    });
+    });*/
 
     // リセット
     $('#reset').click(function () {
