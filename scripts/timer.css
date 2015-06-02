@@ -74,6 +74,45 @@ input.time {
 	text-align: center;
 	font-size: 20em;
 }
+
+.center{
+    vertical-align:middle;
+}
+.select_type input {
+    display: none;
+}
+.select_type label{
+    display: block;
+    float: left;
+    cursor: pointer;
+    width: 60px;
+    margin: 0;
+    padding: 10px;
+    background: #bdc3c7;
+    color: #869198;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1;
+    transition: .2s;
+}
+.select_type label:first-of-type{
+    border-radius: 3px 0 0 3px;
+}
+.select_type label:last-of-type{
+    border-radius: 0 3px 3px 0;
+}
+.select_type input[type="radio"]:checked + .switch-on {
+    background-color: #a1b91d;
+    color: #fff;
+}
+.select_type input[type="radio"]:checked + .switch-off {
+    background-color: #e67168;
+    color: #fff;
+}
+
+
+
+
 .TimeOver{
     color: #FE2E64;
 }

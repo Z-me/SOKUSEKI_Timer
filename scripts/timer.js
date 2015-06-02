@@ -2,6 +2,7 @@ $(function () {
     var sec = 0;
     var min = 20;
     var start_time = "20:00"; //デフォルトのstart時間
+    var timer_type = false; //カウントアップならture, カウントダウンならfalse
     var first, second, last;
     var timer;
 
@@ -39,32 +40,71 @@ $(function () {
         view();
     });
 
+    //タイマータイプの選択
+    $('input[name="counttype"]:radio').change(function(){
+        if($(this).val()==1){   //カウントアップ
+            timer_type = true;
+            $('#clock').html("00:00");
+            start_time = "00:00";
+            min = sec = 0;
+            var bell_id = [
+                'first_bell',
+                'second_bell',
+                'last_bell'
+            ];
+            var default_bell = ["00:12:00","00:15:00","00:20:00"];
+            for(var i = 0; i < bell_id.length; i++)
+                document.getElementById(bell_id[i]).value = default_bell[i];
+        } else {    //カウントダウン
+            console.log($(this).val());
+            timer_type = false;
+            $('#clock').html("20:00");
+            start_time = "20:00";
+            min = 20;
+            sec = 0;
+            var bell_id = [
+                'first_bell',
+                'second_bell',
+                'last_bell'
+            ];
+            var default_bell = ["00:08:00","00:05:00","00:00:00"];
+            for(var i = 0; i < bell_id.length; i++)
+                document.getElementById(bell_id[i]).value = default_bell[i];
+        }
+    });
+
     // スタート
     $('#start').click(function () {
 
         //タイマーセット
         getTime();
 
-        timer = setInterval(countdown, 1000);
-
-//        $(this).attr('disabled', 'disabled');
-        $('#stop,#reset').removeAttr('disabled');
+        $('#clock').removeClass("TimeOver");
+        if(timer_type){
+            timer = setInterval(countUp, 1000);
+        } else {
+            timer = setInterval(countDown, 1000);
+        }
+        $('#stop').removeAttr('disabled');
     });
 
     // ストップ
     $('#stop').click(function () {
         // 一時停止
         clearInterval(timer);
-
         $(this).attr('disabled', 'disabled');
-//        $('#restart').removeAttr('disabled');
+        $('#start, #reset').removeAttr('disabled');
     });
 
     // リセット
     $('#reset').click(function () {
         // 初期状態
-        sec = 0;
-        min = 20;
+        if(timer_type){
+            sec = min = 0;
+        }else{
+            sec = 0;
+            min = 20;
+        }
         $('#clock').html(start_time);
         clearInterval(timer);
 
@@ -99,9 +139,31 @@ $(function () {
     }
 
     /**
+     * カウントアップ
+     */
+    function countUp() {
+        sec += 1;
+        if(sec >= 60){
+            sec = 0;
+            min += 1;
+            if(min > 99){
+                min = 99;
+                clearInterval(timer);
+                $('#stop').attr('disabled', 'disabled');
+                $('#clock').removeClass("TimeOver");
+            }
+        }
+        if(last < (min * 60) + sec){
+            $('#clock').addClass("TimeOver");
+        }
+        view(); //カウント表示
+        bellCheck();  //ベルのチェック
+    }
+
+        /**
      * カウントダウン
      */
-    function countdown() {
+    function countDown() {
         sec -= 1;
         if (sec < 0) {
         //    sec = 0;
