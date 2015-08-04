@@ -5,6 +5,7 @@ $(function () {
     var timer_type = false; //カウントアップならture, カウントダウンならfalse
     var first, second, last;
     var timer;
+    var isPlaying = false;
 
     //タイマーセット
     $('#M_Plus').click(function () {
@@ -75,10 +76,9 @@ $(function () {
 
     // スタート
     $('#start').click(function () {
-
         //タイマーセット
         getTime();
-
+        
         $('#clock').removeClass("TimeOver");
         if(timer_type){
             timer = setInterval(countUp, 1000);
@@ -86,6 +86,7 @@ $(function () {
             timer = setInterval(countDown, 1000);
         }
         $('#stop').removeAttr('disabled');
+        $(this).attr('disabled', 'disabled');
     });
 
     // ストップ
